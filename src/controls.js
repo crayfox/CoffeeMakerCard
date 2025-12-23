@@ -14,7 +14,7 @@ export const renderSlidersForSelectedCoffee = (ctx, quantityEntity, beanEntity, 
       beanEntity = ctx.getEntityByKey('bean_amount');
     }
 
-    const currentValue = parseInt(quantityEntity.state);
+    const currentValue = Number.parseInt(quantityEntity.state);
     const { min, max, step } = quantityEntity.attributes;
     const midValue = Math.round(((min + max) / 2 - min) / step) * step + min;
 
@@ -31,7 +31,7 @@ export const renderSlidersForSelectedCoffee = (ctx, quantityEntity, beanEntity, 
         case "Hot Water": {
             const hotWaterState = ctx.getEntityByKey('hot_water_temperature');
             if (hotWaterState) {
-                const waterValue = parseInt(hotWaterState.state.split("_")[9]);
+                const waterValue = Number.Number.parseInt(hotWaterState.state.split("_")[9]);
                 arranged.push(renderSlider(ctx, "temperature", "hot_water", null, null, waterValue, 10, disabled));
             }
             break;
@@ -65,7 +65,7 @@ export const computeSliderData = (ctx, key, value) => {
         baseConfig = { min: 0, max: Math.max(0, options.length - 1), step: 1 };
     } else if (key === "hot_water") {
         const rawOptions = ctx.getAttributesByKey('hot_water_temperature').options || [];
-        options = rawOptions.map(o => parseInt(o.split("_").slice(9, 10)));
+        options = rawOptions.map(o => Number.parseInt(o.split("_").slice(9, 10)));
         const order = [70, 80, 90, 97];
         options = options.sort((a, b) => order.indexOf(a) - order.indexOf(b));
         unit = '°C';
@@ -83,7 +83,7 @@ export const computeSliderData = (ctx, key, value) => {
     let sliderConfig = { ...cached.baseConfig, value };
     if (cached.options?.length) {
         if (key === "hot_water") {
-            sliderConfig.value = cached.options.indexOf(parseInt(value));
+            sliderConfig.value = cached.options.indexOf(Number.parseInt(value));
         } else {
             sliderConfig.value = cached.options.indexOf(value);
         }
@@ -133,7 +133,7 @@ export const syncSliderWithHomeConnect = (ctx, key, e, options = null) => {
 
     if (options) {
         if (e.target.type === "range") {
-            value = options[parseInt(e.target.value, 10)];
+            value = options[Number.parseInt(e.target.value, 10)];
         } else if (e.target.type === "text") {
             if (!options.includes(value)) return;
         }

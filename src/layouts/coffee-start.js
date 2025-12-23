@@ -190,8 +190,8 @@ export class CoffeeStart extends LitElement {
             const newState = msg.data?.new_state.state;
 
             if (entityId === progressEntityId) {
-                const val = parseFloat(newState);
-                if (!isNaN(val)) this.progress = Math.min(100, Math.max(0, val));
+                const val = Number.parseFloat(newState);
+                if (!Number.isNaN(val)) this.progress = Math.min(100, Math.max(0, val));
             }
             if (this.progress >= 100 || newState === 'finished') {
                 this.isDone = true;

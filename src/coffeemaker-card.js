@@ -7,7 +7,6 @@ import './layouts/coffee-start.js';
 import './layouts/coffee-select.js';
 import './layouts/coffee-stats.js';
 import './theme-utils.js';
-import { renderSlider } from './controls.js';
 import { formatProgramName } from './utils.js';
 
 class CoffeemakerCard extends LitElement {
@@ -67,7 +66,7 @@ class CoffeemakerCard extends LitElement {
     this._hass = hass;
     if (!this._hass) return;
 
-    const configName = this._config.entity.toLowerCase().trim().replace(/\s+/g, "_");
+    const configName = this._config.entity.toLowerCase().trim().replaceAll(/\s+/g, "_");
     this.match = configName.match(/^(.*?)(?:_(\d+))?$/);
     const baseName = this.match[1];
     const deviceNum = this.match[2];

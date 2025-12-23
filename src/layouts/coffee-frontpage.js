@@ -46,7 +46,7 @@ export class CoffeeFrontPage extends LitElement {
         super.connectedCallback();
         updateThemeVars();
 
-        if (this.ctx?.options && !isNaN(this.currentIndex)) {
+        if (this.ctx?.options && !Number.isNaN(this.currentIndex)) {
             const saved = this.currentCoffee;
             if (saved) {
                 const idx = this.ctx.options.indexOf(saved);
