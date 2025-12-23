@@ -1,0 +1,7 @@
+node_modules/
+package-lock.json/
+tests/cucumber/node_modules/
+tests/cucumber/package-lock.json/
+tests/playwright/node_modules/
+tests/playwright/package-lock.json/
+tests/playwright/test-results/
