@@ -1,5 +1,5 @@
 pipeline {
-  agent { label "${env.SLAVE}" }
+  agent { label "docker-agent" }
 
   stages {
 
