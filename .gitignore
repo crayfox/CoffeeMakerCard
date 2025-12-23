@@ -2,6 +2,8 @@ node_modules
 package-lock.json
 tests/cucumber/node_modules
 tests/cucumber/package-lock.json
+tests/cucumber/.env
 tests/playwright/node_modules
 tests/playwright/package-lock.json
+tests/playwright/.env
 tests/playwright/test-results
