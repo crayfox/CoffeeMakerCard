@@ -174,7 +174,7 @@ export const syncSliderWithHomeConnect = (ctx, key, e, options = null) => {
 
     if (ctx.getStateByKey('operation_state') === 'ready') {
         if (key === "beans") {
-            optionValue = "consumer_products_coffee_maker_enum_type_bean_amount_" + value.replace(/\s+/g, "_");
+            optionValue = "consumer_products_coffee_maker_enum_type_bean_amount_" + value.replaceAll(/\s+/g, "_");
             ctx._hass.callService("home_connect", "set_program_and_options", {
                 device_id: ctx.deviceId,
                 affects_to: 'selected_program',
