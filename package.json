@@ -1,0 +1,32 @@
+{
+  "name": "coffeemaker",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "npm run clean && rollup -c"
+  },
+  "dependencies": {
+    "lit": "^3.3.1",
+    "node-localstorage": "^3.0.5",
+    "rimraf": "^6.1.0",
+    "swiper": "^12.0.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-url": "^8.0.2",
+    "rollup-plugin-import-css": "^3.3.3"
+  },
+  "description": "CoffeeMaker Card is a user friendly UI version of the Home Connect integration in Home Assistant. It has two variants - desktop and mobile. For the mobile version the [swiper](http://idangero.us/swiper/) library was used.",
+  "main": "rollup.config.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github-bshg.boschdevcloud.com/PCP-Home-Connect-Org/CoffeeMakerCard.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
